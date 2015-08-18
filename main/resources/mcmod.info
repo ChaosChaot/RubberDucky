@@ -1,0 +1,15 @@
+[
+{
+  "modid": "rubberducky",
+  "name": "Rubber Ducky Mod",
+  "description": "A mod about Rubber Ducks",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "http://chaoschaot.de",
+  "updateUrl": "",
+  "authorList": ["ChaosChaot"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": []
+}
+]
