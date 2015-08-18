@@ -7,111 +7,103 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 /**
- * QED - ChaosChaot
+ * rubberduck - ChaosChaot
  * Created using Tabula 4.1.1
  */
 @SideOnly(Side.CLIENT)
 public class ModelRubberDuck extends ModelBase {
 
-   public static final ModelRubberDuck instance = new ModelRubberDuck();
-   public static final ResourceLocation texture = new ResourceLocation(Reference.MOD_IDENTIFIER + "textures/models/rubberduck_obsidian.png");
+    public static final ModelRubberDuck instance = new ModelRubberDuck();
+    public static final ResourceLocation texture = new ResourceLocation(Reference.MOD_IDENTIFIER + "textures/models/rubberduck_default.png");
 
-   public ModelRenderer BodyI;
-   public ModelRenderer BodyII;
-   public ModelRenderer BodyIII;
-   public ModelRenderer End;
-   public ModelRenderer Head;
-   public ModelRenderer HeadII;
-   public ModelRenderer HeadIII;
+    public ModelRenderer BodyMain;
+    public ModelRenderer WingLeft;
+    public ModelRenderer WingRight;
+    public ModelRenderer Foot;
+    public ModelRenderer Back;
+    public ModelRenderer Tail;
+    public ModelRenderer TailII;
+    public ModelRenderer Head;
+    public ModelRenderer Front;
+    public ModelRenderer Top;
+    public ModelRenderer HeadRight;
+    public ModelRenderer HeadLeft;
+    public ModelRenderer HeadTop;
+    public ModelRenderer HeadBeak;
 
-   public ModelRubberDuck() {
-      this.textureWidth = 10;
-      this.textureHeight = 4;
-      this.End = new ModelRenderer(this, 0, 0);
-      this.End.setRotationPoint(-0.2F, 20.300000000000047F, 1.2F);
-      this.End.addBox(0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F);
-      this.BodyII = new ModelRenderer(this, 0, 0);
-      this.BodyII.setRotationPoint(0.0F, 21.200000000000063F, 0.3F);
-      this.BodyII.addBox(0.0F, 0.0F, 0.0F, 2, 1, 3, 0.0F);
-      this.BodyIII = new ModelRenderer(this, 0, 0);
-      this.BodyIII.setRotationPoint(0.0F, 22.000000000000078F, 0.5F);
-      this.BodyIII.addBox(0.0F, 0.0F, 0.0F, 2, 1, 2, 0.0F);
-      this.HeadII = new ModelRenderer(this, 0, 0);
-      this.HeadII.setRotationPoint(1.0F, 19.80000000000004F, 1.0F);
-      this.HeadII.addBox(0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F);
-      this.Head = new ModelRenderer(this, 0, 0);
-      this.Head.setRotationPoint(1.3F, 20.000000000000043F, 0.8F);
-      this.Head.addBox(0.0F, 0.0F, 0.0F, 2, 1, 2, 0.0F);
-      this.HeadIII = new ModelRenderer(this, 0, 0);
-      this.HeadIII.setRotationPoint(2.2F, 20.700000000000053F, 1.0F);
-      this.HeadIII.addBox(0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F);
-      this.BodyI = new ModelRenderer(this, 0, 0);
-      this.BodyI.setRotationPoint(0.0F, 20.700000000000053F, 0.5F);
-      this.BodyI.addBox(0.0F, 0.0F, 0.0F, 2, 1, 2, 0.0F);
-   }
+    public ModelRubberDuck() {
+       this.textureWidth = 35;
+       this.textureHeight = 19;
+       this.HeadBeak = new ModelRenderer(this, 18, 14);
+       this.HeadBeak.setRotationPoint(0.5F, 1.7F, -0.7F);
+       this.HeadBeak.addBox(0.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F);
+       this.WingRight = new ModelRenderer(this, 7, 7);
+       this.WingRight.setRotationPoint(3.7F, 1.0F, 0.6F);
+       this.WingRight.addBox(0.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F);
+       this.TailII = new ModelRenderer(this, 15, 9);
+       this.TailII.setRotationPoint(1.5F, -0.6F, 4.3F);
+       this.TailII.addBox(0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F);
+       this.BodyMain = new ModelRenderer(this, 0, 0);
+       this.BodyMain.setRotationPoint(-2.0F, 4.6F, 0.0F);
+       this.BodyMain.addBox(0.0F, 0.0F, 0.0F, 4, 3, 4, 0.0F);
+       this.Head = new ModelRenderer(this, 0, 11);
+       this.Head.setRotationPoint(0.5F, -2.3F, -1.5F);
+       this.Head.addBox(0.0F, 0.0F, 0.0F, 3, 3, 3, 0.0F);
+       this.Front = new ModelRenderer(this, 24, 0);
+       this.Front.setRotationPoint(0.5F, -0.5F, -0.5F);
+       this.Front.addBox(0.0F, 0.0F, 0.0F, 3, 3, 1, 0.0F);
+       this.HeadTop = new ModelRenderer(this, 18, 11);
+       this.HeadTop.setRotationPoint(0.5F, -0.1F, 0.4F);
+       this.HeadTop.addBox(0.0F, 0.0F, 0.0F, 2, 1, 2, 0.0F);
+       this.Top = new ModelRenderer(this, 23, 5);
+       this.Top.setRotationPoint(0.5F, -0.5F, 0.5F);
+       this.Top.addBox(0.0F, 0.0F, 0.0F, 3, 1, 3, 0.0F);
+       this.HeadLeft = new ModelRenderer(this, 12, 15);
+       this.HeadLeft.setRotationPoint(2.3F, 0.7F, 0.8F);
+       this.HeadLeft.addBox(0.0F, 0.0F, 0.0F, 1, 2, 2, 0.0F);
+       this.WingLeft = new ModelRenderer(this, 0, 7);
+       this.WingLeft.setRotationPoint(-0.7F, 1.0F, 0.5F);
+       this.WingLeft.addBox(0.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F);
+       this.Foot = new ModelRenderer(this, 12, 0);
+       this.Foot.setRotationPoint(0.5F, 2.5F, 0.5F);
+       this.Foot.addBox(0.0F, 0.0F, 0.0F, 3, 1, 3, 0.0F);
+       this.HeadRight = new ModelRenderer(this, 12, 11);
+       this.HeadRight.setRotationPoint(-0.3F, 0.7F, 0.8F);
+       this.HeadRight.addBox(0.0F, 0.0F, 0.0F, 1, 2, 2, 0.0F);
+       this.Back = new ModelRenderer(this, 16, 4);
+       this.Back.setRotationPoint(0.5F, 0.0F, 3.5F);
+       this.Back.addBox(0.0F, 0.0F, 0.0F, 3, 2, 1, 0.0F);
+       this.Tail = new ModelRenderer(this, 15, 7);
+       this.Tail.setRotationPoint(1.0F, -0.3F, 4.0F);
+       this.Tail.addBox(0.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F);
+       this.Head.addChild(this.HeadBeak);
+       this.BodyMain.addChild(this.WingRight);
+       this.BodyMain.addChild(this.TailII);
+       this.BodyMain.addChild(this.Head);
+       this.BodyMain.addChild(this.Front);
+       this.Head.addChild(this.HeadTop);
+       this.BodyMain.addChild(this.Top);
+       this.Head.addChild(this.HeadLeft);
+       this.BodyMain.addChild(this.WingLeft);
+       this.BodyMain.addChild(this.Foot);
+       this.Head.addChild(this.HeadRight);
+       this.BodyMain.addChild(this.Back);
+       this.BodyMain.addChild(this.Tail);
+    }
 
-   @Override
-   public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-      GL11.glPushMatrix();
-      GL11.glTranslatef(this.End.offsetX, this.End.offsetY, this.End.offsetZ);
-      GL11.glTranslatef(this.End.rotationPointX * f5, this.End.rotationPointY * f5, this.End.rotationPointZ * f5);
-      GL11.glScaled(0.4D, 0.9D, 0.8D);
-      GL11.glTranslatef(-this.End.offsetX, -this.End.offsetY, -this.End.offsetZ);
-      GL11.glTranslatef(-this.End.rotationPointX * f5, -this.End.rotationPointY * f5, -this.End.rotationPointZ * f5);
-      this.End.render(f5);
-      GL11.glPopMatrix();
-      GL11.glPushMatrix();
-      GL11.glTranslatef(this.BodyII.offsetX, this.BodyII.offsetY, this.BodyII.offsetZ);
-      GL11.glTranslatef(this.BodyII.rotationPointX * f5, this.BodyII.rotationPointY * f5, this.BodyII.rotationPointZ * f5);
-      GL11.glScaled(1.0D, 0.8D, 0.8D);
-      GL11.glTranslatef(-this.BodyII.offsetX, -this.BodyII.offsetY, -this.BodyII.offsetZ);
-      GL11.glTranslatef(-this.BodyII.rotationPointX * f5, -this.BodyII.rotationPointY * f5, -this.BodyII.rotationPointZ * f5);
-      this.BodyII.render(f5);
-      GL11.glPopMatrix();
-      GL11.glPushMatrix();
-      GL11.glTranslatef(this.BodyIII.offsetX, this.BodyIII.offsetY, this.BodyIII.offsetZ);
-      GL11.glTranslatef(this.BodyIII.rotationPointX * f5, this.BodyIII.rotationPointY * f5, this.BodyIII.rotationPointZ * f5);
-      GL11.glScaled(1.0D, 0.5D, 1.0D);
-      GL11.glTranslatef(-this.BodyIII.offsetX, -this.BodyIII.offsetY, -this.BodyIII.offsetZ);
-      GL11.glTranslatef(-this.BodyIII.rotationPointX * f5, -this.BodyIII.rotationPointY * f5, -this.BodyIII.rotationPointZ * f5);
-      this.BodyIII.render(f5);
-      GL11.glPopMatrix();
-      this.HeadII.render(f5);
-      GL11.glPushMatrix();
-      GL11.glTranslatef(this.Head.offsetX, this.Head.offsetY, this.Head.offsetZ);
-      GL11.glTranslatef(this.Head.rotationPointX * f5, this.Head.rotationPointY * f5, this.Head.rotationPointZ * f5);
-      GL11.glScaled(0.7D, 1.0D, 0.7D);
-      GL11.glTranslatef(-this.Head.offsetX, -this.Head.offsetY, -this.Head.offsetZ);
-      GL11.glTranslatef(-this.Head.rotationPointX * f5, -this.Head.rotationPointY * f5, -this.Head.rotationPointZ * f5);
-      this.Head.render(f5);
-      GL11.glPopMatrix();
-      GL11.glPushMatrix();
-      GL11.glTranslatef(this.HeadIII.offsetX, this.HeadIII.offsetY, this.HeadIII.offsetZ);
-      GL11.glTranslatef(this.HeadIII.rotationPointX * f5, this.HeadIII.rotationPointY * f5, this.HeadIII.rotationPointZ * f5);
-      GL11.glScaled(1.0D, 0.3D, 1.0D);
-      GL11.glTranslatef(-this.HeadIII.offsetX, -this.HeadIII.offsetY, -this.HeadIII.offsetZ);
-      GL11.glTranslatef(-this.HeadIII.rotationPointX * f5, -this.HeadIII.rotationPointY * f5, -this.HeadIII.rotationPointZ * f5);
-      this.HeadIII.render(f5);
-      GL11.glPopMatrix();
-      GL11.glPushMatrix();
-      GL11.glTranslatef(this.BodyI.offsetX, this.BodyI.offsetY, this.BodyI.offsetZ);
-      GL11.glTranslatef(this.BodyI.rotationPointX * f5, this.BodyI.rotationPointY * f5, this.BodyI.rotationPointZ * f5);
-      GL11.glScaled(1.0D, 0.5D, 1.0D);
-      GL11.glTranslatef(-this.BodyI.offsetX, -this.BodyI.offsetY, -this.BodyI.offsetZ);
-      GL11.glTranslatef(-this.BodyI.rotationPointX * f5, -this.BodyI.rotationPointY * f5, -this.BodyI.rotationPointZ * f5);
-      this.BodyI.render(f5);
-      GL11.glPopMatrix();
-   }
+    @Override
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
+        this.BodyMain.render(f5);
+    }
 
-   /**
-    * This is a helper function from Tabula to set the rotation of model parts
-    */
-   public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-      modelRenderer.rotateAngleX = x;
-      modelRenderer.rotateAngleY = y;
-      modelRenderer.rotateAngleZ = z;
-   }
+    /**
+     * This is a helper function from Tabula to set the rotation of model parts
+     */
+    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+        modelRenderer.rotateAngleX = x;
+        modelRenderer.rotateAngleY = y;
+        modelRenderer.rotateAngleZ = z;
+    }
 }

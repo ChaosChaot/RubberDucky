@@ -6,6 +6,7 @@ import me.jezza.oc.common.blocks.BlockAbstractModel;
 import me.jezza.oc.common.interfaces.ITileProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
 public class BlockRubberDuck extends BlockAbstractModel implements ITileProvider {
@@ -17,6 +18,8 @@ public class BlockRubberDuck extends BlockAbstractModel implements ITileProvider
       setStepSound(soundTypeWood);
 
       setCreativeTab(RubberDucky.creativeTab);
+      Float bounding = 0.5F;
+      setBlockBounds(0.5F-0.125F, 0.0F, 0.5F-0.13F, 0.5F+0.13F, 0.4F, 0.5F+0.26F);
 
       textureReg = true;
       setBlockTextureName(""); // TODO: blockparticles
@@ -26,4 +29,15 @@ public class BlockRubberDuck extends BlockAbstractModel implements ITileProvider
    public TileEntity createNewTileEntity(World world, int i) {
       return new TileEntityRubberDuck();
    }
+
+   @Override
+   public boolean renderAsNormalBlock() {
+      return false;
+   }
+
+   @Override
+   public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
+      return null;
+   }
+
 }
