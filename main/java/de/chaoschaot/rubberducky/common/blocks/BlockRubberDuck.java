@@ -18,8 +18,7 @@ public class BlockRubberDuck extends BlockAbstractModel implements ITileProvider
       setStepSound(soundTypeWood);
 
       setCreativeTab(RubberDucky.creativeTab);
-      Float bounding = 0.5F;
-      setBlockBounds(0.5F-0.125F, 0.0F, 0.5F-0.13F, 0.5F+0.13F, 0.4F, 0.5F+0.26F);
+      setBlockBounds(0.5F-0.25F, 0.0F, 0.5F-0.25F, 0.5F+0.25F, 0.4F, 0.5F+0.25F);
 
       textureReg = true;
       setBlockTextureName(""); // TODO: blockparticles
